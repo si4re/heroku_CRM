@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-const port = 8080;
+//const port = 80;
 
-
+app.set('port', (process.env.PORT || 5000));
 
 var fs = require('fs');
 var bodyParser = require('body-parser');
@@ -52,23 +52,16 @@ MongoClient.connect(db.url, (err, database) => {
     if (err) return console.log(err)
     require('./app/routes')(app, database);
 
-    app.listen(port, () => {
-        console.log('We are live on ' + port);
+    app.listen(app.get('port'), function() {
+        console.log('Node app is running on port', app.get('port'));
     });
+
+
+
 });
 
 
 
 var api_route = require('./app/routes/api_route')(app);
-//var passport = require('passport');
-//app.use(passport.initialize());
-
-/*
-// for jwt  use it after express
-var User = require('./app/models/user'); // get our mongoose model
-var secret = require('./config/jsonwebtoken_secret');
-var api_route = require('./app/routes/api_route')(app, db, User, express, jwt, secret);
-var create_user = require('./app/routes/create_user')(app, db, User); // pass variables to creat_user
-*/
 
 var Project = require('./app/models/project');
