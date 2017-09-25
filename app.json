@@ -1,0 +1,15 @@
+{
+  "name": "heroku_CRM",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
