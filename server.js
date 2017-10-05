@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-//const port = 80;
+const port = 8080;
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', port);
 
 var fs = require('fs');
 var bodyParser = require('body-parser');
